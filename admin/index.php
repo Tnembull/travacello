@@ -19,6 +19,23 @@ $gambar=$_SESSION["picture"];
 $nama=$_SESSION["nama"];
 $email=$_SESSION["email"];
 
+include "../config/koneksi.php";
+$sql="SELECT COUNT(*) FROM `users` WHERE level = 2";
+$data=mysqli_query($kon,$sql);
+$user = mysqli_fetch_array($data);
+
+$sql1="SELECT COUNT(*) FROM `booking`";
+$data1=mysqli_query($kon,$sql1);
+$book = mysqli_fetch_array($data1);
+
+$sql2="SELECT COUNT(*) FROM `review`";
+$data2=mysqli_query($kon,$sql2);
+$review = mysqli_fetch_array($data2);
+
+$sql3="SELECT COUNT(*) FROM `tour`";
+$data3=mysqli_query($kon,$sql3);
+$tour = mysqli_fetch_array($data3);
+
 ?>
 
 
@@ -86,7 +103,65 @@ $email=$_SESSION["email"];
 
     <!-- Main content -->
     <section class="content">
+<!-- Info boxes -->
+<div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
+              <div class="info-box-content">
+                <span class="info-box-text">Tour</span>
+                <span class="info-box-number"><?= $tour[0]; ?></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Review</span>
+                <span class="info-box-number"><?= $review[0]; ?></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Sales</span>
+                <span class="info-box-number"><?= $book[0]; ?></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">User</span>
+                <span class="info-box-number"><?= $user[0]; ?></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">

@@ -1,4 +1,25 @@
+<?php
+session_start();
 
+if (!isset($_SESSION["username"])) {
+	echo "Anda harus login dulu <br><a href='login.php'>Klik disini</a>";
+	exit;
+}
+
+$level=$_SESSION["level"];
+
+if ($level!=1) {
+    echo "Anda tidak punya akses pada halaman admin";
+    exit;
+}
+
+$id_user=$_SESSION["id_user"];
+$username=$_SESSION["username"];
+$gambar=$_SESSION["picture"];
+$nama=$_SESSION["nama"];
+$email=$_SESSION["email"];
+
+?>
 <!DOCTYPE html>
 <html class="no-js">
 	<head>
@@ -43,6 +64,7 @@
 	<link rel="stylesheet" href="../assets/css/cs-skin-border.css">
 	
 	<link rel="stylesheet" href="../assets/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 	<!-- Modernizr JS -->
@@ -54,7 +76,6 @@
 
 	</head>
 	<body>
-	<marquee direction="left" scrollamount="3" align="center" bgcolor="#e5594f"style='color:white; font-weight:bold;'>WELCOME TO TRAVACELLO ♡ </marquee>
   <a href="https://api.whatsapp.com/send?phone=6287793419149">
   <img src="../assets/images/wa.png" class="wabutton" alt="Whatsapp-Button" />
   </a>
@@ -108,18 +129,13 @@
 					<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li class=""><a href="#head">Home</a></li>
-							<li>
-							<a href="#fh5co-tours">About Us</a>
-							</li>
-							<li><a href="#fh5co-destination">Gallery</a></li>
-							<li><a href="#fh5co-blog-section">Open Trip</a></li>
-							<li><a href="#fh5co-testimonial">Review</a></li>
-							<li><a href="login.php">Login/Daftar</a></li>
+							<li><a href="../logout.php"><i class="fas fa-user"><?php echo $nama; ?></i></a></li>
+                            <li><a href="../logout.php"><i class="fas fa-sign-out-alt">logout</a></i></li>
 						</ul>
 					</nav>
 				</div>
 			</div>
+			<marquee direction="left" scrollamount="3" align="center" bgcolor="#e5594f"style='color:white; font-weight:bold;'>WELCOME TO TRAVACELLO ♡ </marquee>
 		</header>
 
 		<!-- end:header-top -->

@@ -20,8 +20,7 @@
         $password=input(md5($_POST["password"]));
     
         //Query input menginput data kedalam tabel pendaftaraan
-        $sql="insert into users (username,nama,picture,email,level,password)  values
-		('$username','default.png','$name','$email',2,'$password')";
+        $sql="insert into users values (NULL,'$username','default.png','$name','$email',2,'$password')";
 
         //Mengeksekusi/menjalankan query diatas
         $hasil=mysqli_query($kon,$sql);
@@ -105,7 +104,7 @@
       </form>
 
 
-      <a href="index.php" class="text-center">I already have a membership</a>
+      <a href="login.php" class="text-center">I already have a membership</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

@@ -54,7 +54,6 @@
 
 	</head>
 	<body>
-	<marquee direction="left" scrollamount="3" align="center" bgcolor="#e5594f"style='color:white; font-weight:bold;'>WELCOME TO TRAVACELLO ♡ </marquee>
   <a href="https://api.whatsapp.com/send?phone=6287793419149">
   <img src="assets/images/wa.png" class="wabutton" alt="Whatsapp-Button" />
   </a>
@@ -120,6 +119,7 @@
 					</nav>
 				</div>
 			</div>
+	<marquee direction="left" scrollamount="3" align="center" bgcolor="#e5594f"style='color:white; font-weight:bold;'>WELCOME TO TRAVACELLO ♡ </marquee>
 		</header>
 
 		<!-- end:header-top -->

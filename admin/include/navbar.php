@@ -37,13 +37,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
+                <a href="datapemesanan.php" class="nav-link">
                   <i class="fas fa-list nav-icon"></i>
                   <p>Lihat Data Pemesanan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
+                <a href="konfirmasipemesanan.php" class="nav-link">
                   <i class="fas fa-barcode nav-icon"></i>
                   <p>Konfirmasi Pembayaran</p>
                 </a>
@@ -61,23 +61,12 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
-                  <i class="fas fa-file-invoice nav-icon"></i>
-                  <p>Laporan Pemesanan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
+                <a href="laporantransaksi.php" class="nav-link">
                   <i class="fas fa-check-square nav-icon"></i>
-                  <p>Laporan Konfirmasi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
-                  <i class="fas fa-file-invoice-dollar nav-icon"></i>
                   <p>Laporan Transaksi</p>
                 </a>
               </li>
+
             </ul>
           </li>
         </ul>

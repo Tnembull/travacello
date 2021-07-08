@@ -1,3 +1,25 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["username"])) {
+	echo "Anda harus login dulu <br><a href='login.php'>Klik disini</a>";
+	exit;
+}
+
+$level=$_SESSION["level"];
+
+if ($level!=1) {
+    echo "Anda tidak punya akses pada halaman admin";
+    exit;
+}
+
+$id_user=$_SESSION["id_user"];
+$username=$_SESSION["username"];
+$gambar=$_SESSION["picture"];
+$nama=$_SESSION["nama"];
+$email=$_SESSION["email"];
+
+?>
 <!DOCTYPE html>
 <html class="no-js">
 
@@ -111,18 +133,11 @@
                         <!-- START #fh5co-menu-wrap -->
                         <nav id="fh5co-menu-wrap" role="navigation">
                             <ul class="sf-menu" id="fh5co-primary-menu">
-                                <li class=""><a href="#head">Home</a></li>
-                                <li>
-                                    <a href="#fh5co-tours">About Us</a>
-                                </li>
-                                <li><a href="#fh5co-destination">Gallery</a></li>
-                                <li><a href="#fh5co-blog-section">Open Trip</a></li>
-                                <li><a href="#fh5co-testimonial">Review</a></li>
-                                <li><a href="login.php">Login/Daftar</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
+                <marquee direction="left" scrollamount="3" align="center" bgcolor="#e5594f"style='color:white; font-weight:bold;'>WELCOME TO TRAVACELLO ♡ </marquee>
             </header>
 
 
@@ -202,10 +217,7 @@
                                     <a href="#"><i class="icon-dribbble2"></i></a>
                                     <a href="#"><i class="icon-youtube"></i></a>
                                 </p>
-                                <p>Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights Reserved. <br>Made with
-                                    <i class="icon-heart3"></i> by <a href="http://freehtml5.co/"
-                                        target="_blank">Freehtml5.co</a> / Demo Images: <a href="https://unsplash.com/"
-                                        target="_blank">Unsplash</a></p>
+                               
                             </div>
                         </div>
                     </div>
