@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["username"])) {
-	echo "Anda harus login dulu <br><a href='login.php'>Klik disini</a>";
+	echo "Anda harus login dulu <br><a href='../login.php'>Klik disini</a>";
 	exit;
 }
 
@@ -68,7 +68,9 @@ $email=$_SESSION["email"];
 
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Modernizr JS -->
     <script src="../assets/js/modernizr-2.6.2.min.js"></script>
@@ -128,19 +130,21 @@ $email=$_SESSION["email"];
             <header id="fh5co-header-section" class="sticky-banner">
                 <div class="container">
                     <div class="nav-header">
-                        <a  class="js-fh5co-nav-toggle fh5co-nav-toggle dark"></a>
-                        <a href="index.php"><img src="../assets/images/logo.png" sytle="width:100%" alt="Logo Tavacello" /></a>
+                        <a class="js-fh5co-nav-toggle fh5co-nav-toggle dark"></a>
+                        <a href="index.php"><img src="../assets/images/logo.png" sytle="width:100%"
+                                alt="Logo Tavacello" /></a>
                         <!-- START #fh5co-menu-wrap -->
                         <nav id="fh5co-menu-wrap" role="navigation">
                             <ul class="sf-menu" id="fh5co-primary-menu">
-                                
-                                <li><a href="../logout.php"><i class="fas fa-user"><?php echo $nama; ?></i></a></li>
+
+                                <li><a href=""><i class="fas fa-user"><?php echo $nama; ?></i></a></li>
                                 <li><a href="../logout.php"><i class="fas fa-sign-out-alt">logout</a></i></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
-                <marquee direction="left" scrollamount="3" align="center" bgcolor="#e5594f"style='color:white; font-weight:bold;'>WELCOME TO TRAVACELLO ♡ </marquee>
+                <marquee direction="left" scrollamount="3" align="center" bgcolor="#e5594f"
+                    style='color:white; font-weight:bold;'>WELCOME TO TRAVACELLO ♡ </marquee>
             </header>
 
 
@@ -156,30 +160,41 @@ $email=$_SESSION["email"];
                                         $data = mysqli_query($kon,"select * from tour where id_tour='$id'");
                                         while($d = mysqli_fetch_array($data)){
                                             ?>
-                            <img src="../assets/img/<?php echo $d['gambar']; ?>" sytle="width:100%" alt="Logo Tavacello" />
+                            <img src="../assets/img/<?php echo $d['gambar']; ?>" sytle="width:100%"
+                                alt="Logo Tavacello" />
 
                             <h3><?php echo $d['nama_tour']; ?></h3>
                             <br><br>
                             <form method="POST" action="booking.php">
-                            <div id="tabs">
-                                <input hidden type ="number" name="id" value="<?php echo $id; ?>">
-                                <ul>
-                                
-                                    <li><a href="#tabs-1">Itinerary</a></li>
-                                    <li><a href="#tabs-2">Price & Detail</a></li>
-                                    <li><a href="#tabs-3">Terms & Condition</a></li>
-                                </ul>
-                                <div id="tabs-1">
-                                    <p><?php echo $d['itinerary']; ?></p>
+                                <div id="tabs">
+                                    <input hidden type="number" name="id" value="<?php echo $id; ?>">
+                                    <ul>
+
+                                        <li><a href="#tabs-1">Itinerary</a></li>
+                                        <li><a href="#tabs-2">Price & Detail</a></li>
+                                        <li><a href="#tabs-3">Terms & Condition</a></li>
+                                    </ul>
+                                    <div id="tabs-1">
+                                        <p><?php echo $d['itinerary']; ?></p>
+                                    </div>
+                                    <div id="tabs-2">
+                                        <p><?php echo $d['detail']; ?></p>
+                                    </div>
+                                    <div id="tabs-3">
+                                        <p><?php echo $d['terms']; ?></p>
+                                    </div>
                                 </div>
-                                <div id="tabs-2">
-                                    <p><?php echo $d['detail']; ?></p>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Jumlah Orang</label>
+                                    <input type="number" class="form-control" name="nop">
                                 </div>
-                                <div id="tabs-3">
-                                    <p><?php echo $d['terms']; ?></p>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tanggal Keberangkatan</label>
+                                    <input type="text" id="datepicker" name="datepicker" autocomplete="off">
                                 </div>
-                            </div><br>
-                            <input type="submit" class="btn btn-primary btn-outline" value="Book Now"></input>
+
+                                <br>
+                                <input type="submit" class="btn btn-primary btn-outline" value="Book Now"></input>
                             </form>
                             <?php 
                                 }
@@ -222,7 +237,7 @@ $email=$_SESSION["email"];
                                     <a href="#"><i class="icon-dribbble2"></i></a>
                                     <a href="#"><i class="icon-youtube"></i></a>
                                 </p>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -269,6 +284,11 @@ $email=$_SESSION["email"];
     <script>
         $(function () {
             $("#tabs").tabs();
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
         });
     </script>
 

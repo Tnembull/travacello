@@ -24,11 +24,11 @@ $sql="SELECT COUNT(*) FROM `users` WHERE level = 2";
 $data=mysqli_query($kon,$sql);
 $user = mysqli_fetch_array($data);
 
-$sql1="SELECT COUNT(*) FROM `booking`";
+$sql1="SELECT COUNT(*) FROM `booking` WHERE konfirmasi = 1";
 $data1=mysqli_query($kon,$sql1);
 $book = mysqli_fetch_array($data1);
 
-$sql2="SELECT COUNT(*) FROM `review`";
+$sql2="SELECT COUNT(*) FROM `review` ";
 $data2=mysqli_query($kon,$sql2);
 $review = mysqli_fetch_array($data2);
 
@@ -187,6 +187,7 @@ $tour = mysqli_fetch_array($data3);
           </div>
         </div>
       </div>
+
     </section>
     <!-- /.content -->
   </div>
@@ -211,6 +212,8 @@ $tour = mysqli_fetch_array($data3);
 <!-- ./wrapper -->
 
 <!-- jQuery -->
+<script src="../adminlte/plugins/chart.js/Chart.min.js"></script>
+<!-- jQuery -->
 <script src="../adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -220,5 +223,28 @@ $tour = mysqli_fetch_array($data3);
 <script src="../adminlte/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../adminlte/dist/js/demo.js"></script>
+<script>
+//-------------
+    //- BAR CHART -
+    //-------------
+    var barChartCanvas = $('#barChart').get(0).getContext('2d')
+    var barChartData = $.extend(true, {}, areaChartData)
+    var temp0 = areaChartData.datasets[0]
+    var temp1 = areaChartData.datasets[1]
+    barChartData.datasets[0] = temp1
+    barChartData.datasets[1] = temp0
+
+    var barChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    new Chart(barChartCanvas, {
+      type: 'bar',
+      data: barChartData,
+      options: barChartOptions
+    })
+</script>
 </body>
 </html>

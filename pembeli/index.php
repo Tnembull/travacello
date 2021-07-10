@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["username"])) {
-	echo "Anda harus login dulu <br><a href='login.php'>Klik disini</a>";
+	echo "Anda harus login dulu <br><a href='../login.php'>Klik disini</a>";
 	exit;
 }
 
@@ -129,7 +129,7 @@ $email=$_SESSION["email"];
 					<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li><a href="../logout.php"><i class="fas fa-user"><?php echo $nama; ?></i></a></li>
+							<li><a href=""><i class="fas fa-user"><?php echo $nama; ?></i></a></li>
                             <li><a href="../logout.php"><i class="fas fa-sign-out-alt">logout</a></i></li>
 						</ul>
 					</nav>

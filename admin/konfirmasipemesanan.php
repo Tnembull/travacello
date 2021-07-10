@@ -73,7 +73,7 @@ $email=$_SESSION["email"];
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Dashboard</h1>
+            <h1>Konfirmasi Pemesanan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -91,13 +91,13 @@ $email=$_SESSION["email"];
             <div class="row">
                 <div class="col-12">
                     <div class="mb-3">
-                        <a href="tambahgambar.php" class="btn btn-danger"><i class="fas fa-plus-square"> ADD</i></a>
+            
                     </div>
                     
                     <!-- Default box -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Gallery Photo</h3>
+                            <h3 class="card-title">Konfirmasi Pemesanan</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -111,6 +111,7 @@ $email=$_SESSION["email"];
                                 <th>Tanggal Depart</th>
                                 <th>Jumlah Orang</th>
                                 <th>Konfirmasi</th>
+                                <th>Hapus</th>
                             </tr>
                         </thead>
                         <?php
@@ -129,10 +130,13 @@ $email=$_SESSION["email"];
                         <td><?php echo $d["nop"]; ?></td>
                         <td><?php if ($d["konfirmasi"] == 0):
                             ?>
-                            <a href="updatekonfirmasi.php?id_book=<?php echo $d["id_book"];?>" class="btn btn-danger">Konfirm</a>
+                            <a href="updatekonfirmasi.php?id_book=<?php echo $d["id_book"];?>" class="btn btn-primary">Konfirmasi Sekarang</a>
                             <?php else :?>
-                            <a class="btn btn-success">TerKonfirmasi</a>
+                            <a href="batalkonfirmasi.php?id_book=<?php echo $d["id_book"];?>" class="btn btn-success">Batalkan Konfirmasi</a>
                             <?php endif; ?>
+                        </td>
+                        <td>
+                          <a href="hapusbook.php?id_book=<?php echo $d["id_book"];?>" class="btn btn-danger">Hapus</a>
                         </td>
                         </tr>
                         </tbody>

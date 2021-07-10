@@ -73,7 +73,7 @@ $email=$_SESSION["email"];
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Dashboard</h1>
+            <h1>Lihat Data Pemesanan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -91,13 +91,13 @@ $email=$_SESSION["email"];
             <div class="row">
                 <div class="col-12">
                     <div class="mb-3">
-                        <a href="tambahgambar.php" class="btn btn-danger"><i class="fas fa-plus-square"> ADD</i></a>
+                        <a href="cetakpdf.php" class="btn btn-primary"><i class="fas fa-print"> Cetak</i></a>
                     </div>
                     
                     <!-- Default box -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Gallery Photo</h3>
+                            <h3 class="card-title">Data Pemesanan</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -129,9 +129,9 @@ $email=$_SESSION["email"];
                         <td><?php echo $d["nop"]; ?></td>
                         <td><?php if ($d["konfirmasi"] == 0):
                             ?>
-                            <button class="btn btn-danger"> Proses</button>
+                            <button class="btn btn-danger"> Menunggu Konfirmasi</button>
                             <?php else :?>
-                            <button class="btn btn-success"> Terkonfirmasi</button>
+                            <button class="btn btn-success"> Sudah Konfirmasi</button>
                             <?php endif; ?>
                         </td>
                         </tr>
