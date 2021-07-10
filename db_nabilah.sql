@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 06, 2021 at 09:14 AM
+-- Generation Time: Jul 10, 2021 at 06:59 PM
 -- Server version: 10.5.9-MariaDB-log
 -- PHP Version: 7.3.27
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_nabilah`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `id_book` int(255) NOT NULL,
+  `id_tour` int(255) NOT NULL,
+  `id_user` int(255) NOT NULL,
+  `departure_date` date NOT NULL,
+  `nop` varchar(255) NOT NULL,
+  `konfirmasi` enum('1','0') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id_book`, `id_tour`, `id_user`, `departure_date`, `nop`, `konfirmasi`) VALUES
+(7, 1, 2, '2021-07-17', '5', '1');
 
 -- --------------------------------------------------------
 
@@ -53,30 +75,6 @@ INSERT INTO `gambar` (`id`, `nama_file`, `judul`, `diupload`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paket_tour`
---
-
-CREATE TABLE `paket_tour` (
-  `id_paket_tour` int(11) NOT NULL,
-  `nama_paket` varchar(100) NOT NULL,
-  `gambar_paket` text NOT NULL,
-  `harga_paket` int(11) NOT NULL,
-  `itinerary_paket` text NOT NULL,
-  `detail_paket` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `paket_tour`
---
-
-INSERT INTO `paket_tour` (`id_paket_tour`, `nama_paket`, `gambar_paket`, `harga_paket`, `itinerary_paket`, `detail_paket`) VALUES
-(1, 'Paket Jogja 5 Hari 4 Malam', 'paket_biasa.jpg', 400000, '<p>Itinerary Wisata Paket Tour Jogja 5 Hari 4 Malam </p>', '<p>Syarat dan Pemesanan Paket Tour Jogja 5 Hari 4 Malam</p>'),
-(2, 'Paket Tour Wisata Jogja 3D2N', 'Paket-3D.jpg', 300000, 'ITINERARY WISATA Paket Tour Wisata Jogja 3D2N', 'Syarat dan Ketentuan Pemesanan Paket Tour Wisata Jogja 3D2N'),
-(3, 'Paket Wisata 4 Hari 3 Malam', 'Paket-4D.jpg', 600000, 'Goa Pindul – Pantai Indrayanti – Candi Ijo – Bukit Bintang ', 'Syarat dan Pemesanan Paket Wisata 4 Hari 3 Malam di Jogja');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `review`
 --
 
@@ -94,7 +92,8 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`id_review`, `nama_review`, `email_review`, `tlp_review`, `pesan_review`, `rating`) VALUES
-(1, 'Bobby', 'bobbymalela@gmail.com', '813123123123', 'Mantep amat', 5);
+(2, 'Michelle', '', '', 'Our trip to the Lombok islands was so welcoming after not traveling for a year and a half because of covid. We felt really safe and had an amazing time...', 5),
+(3, 'Emily', '', '', 'The best vacation ever, best travel guide, great escape! the beach is sooo clear and instagrammable, the lunch at the island is awesome, 1 day tours Belitong Hopping Island is a must to try to do during a short/weekend holiday.....', 5);
 
 -- --------------------------------------------------------
 
@@ -144,23 +143,26 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `username`, `picture`, `nama`, `email`, `level`, `password`) VALUES
 (1, 'nabilah', 'default.png', 'Nabilah Putri', 'nabilah@gmail.com', 1, '827ccb0eea8a706c4c34a16891f84e7b'),
-(2, 'bulin', 'default.png', 'bulin mcd', 'bulin@gmail.com', 2, '827ccb0eea8a706c4c34a16891f84e7b');
+(2, 'bulin', 'default.png', 'bulin mcd', 'bulin@gmail.com', 2, '827ccb0eea8a706c4c34a16891f84e7b'),
+(6, 'bobby', 'default.png', 'Bobby Malela', 'bobby@gmail.com', 2, 'cf7eab9d51dc5f0362f34fd54b790e2c'),
+(7, 'andika', 'default.png', 'andika K', 'andika@gmail.com', 2, '827ccb0eea8a706c4c34a16891f84e7b'),
+(8, 'pembeli', 'default.png', 'pembeli', 'pembeli@gmail.com', 2, '827ccb0eea8a706c4c34a16891f84e7b');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`id_book`);
+
+--
 -- Indexes for table `gambar`
 --
 ALTER TABLE `gambar`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `paket_tour`
---
-ALTER TABLE `paket_tour`
-  ADD PRIMARY KEY (`id_paket_tour`);
 
 --
 -- Indexes for table `review`
@@ -185,22 +187,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `id_book` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `gambar`
 --
 ALTER TABLE `gambar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `paket_tour`
---
-ALTER TABLE `paket_tour`
-  MODIFY `id_paket_tour` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tour`
@@ -212,7 +214,7 @@ ALTER TABLE `tour`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
